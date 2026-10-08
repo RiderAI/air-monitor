@@ -1746,6 +1746,7 @@
   }
 
   // js/map.js
+  var CARTO_BASEMAPS_KEY = "cb1_4ebi_1_8fa7596877be06f3ba901750";
   var IdwCanvasLayer = class extends L.Layer {
     constructor(options = {}) {
       super(options);
@@ -1882,10 +1883,11 @@
       preferCanvas: true
     }).setView([55.75, 37.61], 5);
     L.control.zoom({ position: "topright" }).addTo(map);
+    L.control.attribution({ prefix: false }).addTo(map);
     L.tileLayer(
-      "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+      `https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png?key=${CARTO_BASEMAPS_KEY}`,
       {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attribution/">CARTO</a>',
         subdomains: "abcd",
         maxZoom: 20
       }
